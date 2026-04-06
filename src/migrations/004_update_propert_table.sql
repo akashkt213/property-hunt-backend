@@ -1,0 +1,1 @@
+ALTER TABLE property ADD COLUMN images JSONB NOT NULL DEFAULT '[]';
