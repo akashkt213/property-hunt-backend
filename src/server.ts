@@ -1,5 +1,6 @@
 import app from "./app.js";
 import { pool } from "./config/db.js";
+import { transporter } from "./config/mail.js";
 
 console.log("dbpassword",process.env.DB_PASSWORD)
 
@@ -17,5 +18,17 @@ app.listen(PORT, () => {
     console.log("DB connected ✅", res.rows);
   } catch (err) {
     console.error("DB connection failed ❌", err);
+  }
+})();
+
+(async () => {
+  try {
+    await transporter.verify();
+    console.log("SMTP connected ✅");
+  } catch (err) {
+    console.error(
+      "SMTP connection failed ❌ - check EMAIL_USER/EMAIL_PASS (use Gmail App Password)",
+      err,
+    );
   }
 })();
