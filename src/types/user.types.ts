@@ -12,3 +12,8 @@ export type generateTokenType ={
   id:string,
   role:role
 }
+
+export type verificationMailType = {
+  email:string,
+  token:string
+}
