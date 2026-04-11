@@ -5,6 +5,7 @@ import userRoutes from "./routes/user.routes.js";
 import propertyRoutes from "./routes/property.routes.js";
 import propertyFurnitureRoutes from "./routes/propertyfurniture.routes.js";
 import { openapiDocument } from "./docs/openapi.js";
+import propertyItemRoutes from "./routes/propertyItem.routes.js";
 
 const app = express()
 
@@ -20,5 +21,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiDocument));
 app.use("/", userRoutes);
 app.use("/properties", propertyRoutes);
 app.use("/property-furniture", propertyFurnitureRoutes);
+app.use("/property-items", propertyItemRoutes);
 
 export default app;
